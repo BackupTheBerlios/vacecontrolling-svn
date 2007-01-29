@@ -7,3 +7,4 @@ obj\Debug\VACE_Controlling.Properties.Resources.resources
 obj\Debug\VACE Controlling.csproj.GenerateResource.Cache
 obj\Debug\VACE Controlling.exe
 obj\Debug\VACE Controlling.pdb
+obj\Debug\VACE_Controlling.MitarbeiterStammdatenTab.resources
