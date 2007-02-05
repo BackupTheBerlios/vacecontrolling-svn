@@ -79,8 +79,6 @@ namespace VACE_Controlling
 		public void PanelEvent(object sender, EventArgs e)
 		{
 
-            
-
 		}
 
 		/// <summary>
