@@ -12,6 +12,7 @@ namespace VACE_Controlling.Outlookbar
             BandButton bandButton = new BandButton(caption, bti);
             Controls.Add(bandButton);
             Controls.Add(content);
+            this.BorderStyle = BorderStyle.None;
         }
     }
 }

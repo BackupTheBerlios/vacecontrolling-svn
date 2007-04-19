@@ -25,18 +25,24 @@ namespace VACE_Controlling.Outlookbar
                 return margin;
             }
         }
+
+        public void setColor (Color c)
+        {
+            this.BackColor = c;
+        }
 		public IconPanel()
 		{
 			margin=10;
 			iconSpacing=32+15+10;	// icon height + text height + margin
 			BackColor=Color.LightBlue;
 			AutoScroll=true;
+            this.BorderStyle = BorderStyle.None;
 		}
 
 		public void AddIcon(string caption, Image image, EventHandler onClickEvent)
 		{
 			int index=Controls.Count/2;	// two entries per icon
-			PanelIcon panelIcon=new PanelIcon(this, image, index, onClickEvent);
+			PanelIcon panelIcon=new PanelIcon(this, image, index, onClickEvent,caption);
 			Controls.Add(panelIcon);
 
 			Label label=new Label();

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VACE_Controlling.Outlookbar
 {
-    public abstract class ContentPanel : Panel
+    public class ContentPanel : Panel
     {
         public OutlookBar outlookBar;
 
@@ -13,6 +13,7 @@ namespace VACE_Controlling.Outlookbar
         {
             // initial state
             Visible = true;
+            this.BorderStyle = BorderStyle.None;
         }
     }
 }

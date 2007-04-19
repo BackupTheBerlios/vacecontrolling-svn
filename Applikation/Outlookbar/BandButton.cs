@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace VACE_Controlling.Outlookbar
 {
@@ -11,8 +12,11 @@ namespace VACE_Controlling.Outlookbar
 
         public BandButton(string caption, BandTagInfo bti)
         {
+            
             Text = caption;
-            FlatStyle = FlatStyle.Standard;
+            this.FlatStyle = FlatStyle.Popup;
+            this.FlatAppearance.BorderSize = 0;
+
             Visible = true;
             this.bti = bti;
             Click += new EventHandler(SelectBand);

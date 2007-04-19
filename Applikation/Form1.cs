@@ -58,6 +58,7 @@ namespace VACE_Controlling
 			outlookBar.Location=new Point(0, 0);
 			outlookBar.Size=new Size(150, this.ClientSize.Height);
 			outlookBar.BorderStyle=BorderStyle.FixedSingle;
+           
 
 			outlookBar.Initialize();
             
@@ -69,11 +70,18 @@ namespace VACE_Controlling
 			outlookBar.AddBand("Stundeneingabe", iconPanel2);
 			outlookBar.AddBand("Berichte", iconPanel3);
 
-            iconPanel1.AddIcon("Mitarbeiterdaten", Image.FromFile("img1.ico"), new EventHandler(PanelEvent));
-            iconPanel1.AddIcon("Projektdaten", Image.FromFile("img1.ico"), new EventHandler(PanelEvent));
+            iconPanel1.setColor(Color.LightBlue);
+            iconPanel1.AddIcon("Mitarbeiterdaten", Image.FromFile("images/Mitarbeiterdaten.png"), new EventHandler(PanelEvent));
+            iconPanel1.AddIcon("Projektdaten", Image.FromFile("images/Projektdaten.png"), new EventHandler(PanelEvent));
+            iconPanel1.AddIcon("Arbeitszeitmodelle", Image.FromFile("images/Arbeitszeitmodelle.png"), new EventHandler(PanelEvent));
 
-            iconPanel2.AddIcon("Produktive Stunden", Image.FromFile("img1.ico"), new EventHandler(PanelEvent));
-            iconPanel2.AddIcon("Unproduktive Suntden", Image.FromFile("img1.ico"), new EventHandler(PanelEvent));
+            iconPanel2.setColor(Color.LightBlue);
+            iconPanel2.AddIcon("Produktive Stunden", Image.FromFile("images/Produktive Stunden.png"), new EventHandler(PanelEvent));
+            iconPanel2.AddIcon("Unproduktive Stunden", Image.FromFile("images/Unproduktive Stunden.png"), new EventHandler(PanelEvent));
+            iconPanel2.AddIcon("Fremdleistungen", Image.FromFile("images/Fremdleistungen.png"), new EventHandler(PanelEvent));
+
+
+            iconPanel3.setColor(Color.LightBlue);
 
             outlookBar.SelectBand(0);
 
@@ -125,16 +133,16 @@ namespace VACE_Controlling
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.outlookBar = new VACE_Controlling.Outlookbar.OutlookBar();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Personalnummer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nachname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Geburtsdatum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Abteilung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.outlookBar = new VACE_Controlling.Outlookbar.OutlookBar();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -275,23 +283,14 @@ namespace VACE_Controlling
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.outlookBar);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.TabControl);
             this.splitContainer1.Size = new System.Drawing.Size(814, 511);
-            this.splitContainer1.SplitterDistance = 144;
+            this.splitContainer1.SplitterDistance = 145;
             this.splitContainer1.TabIndex = 3;
-            // 
-            // outlookBar
-            // 
-            this.outlookBar.ButtonHeight = 25;
-            this.outlookBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.outlookBar.Location = new System.Drawing.Point(0, 0);
-            this.outlookBar.Name = "outlookBar";
-            this.outlookBar.SelectedBand = 0;
-            this.outlookBar.Size = new System.Drawing.Size(144, 511);
-            this.outlookBar.TabIndex = 0;
             // 
             // TabControl
             // 
@@ -301,7 +300,7 @@ namespace VACE_Controlling
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(666, 511);
+            this.TabControl.Size = new System.Drawing.Size(665, 511);
             this.TabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -310,20 +309,10 @@ namespace VACE_Controlling
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(658, 485);
+            this.tabPage1.Size = new System.Drawing.Size(657, 485);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mitarbeiter";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(658, 485);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Projekte";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -337,8 +326,9 @@ namespace VACE_Controlling
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(652, 479);
+            this.dataGridView1.Size = new System.Drawing.Size(651, 479);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Personalnummer
             // 
@@ -364,6 +354,27 @@ namespace VACE_Controlling
             // 
             this.Abteilung.HeaderText = "Abteilung";
             this.Abteilung.Name = "Abteilung";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(657, 485);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Projekte";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // outlookBar
+            // 
+            this.outlookBar.ButtonHeight = 25;
+            this.outlookBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.outlookBar.Location = new System.Drawing.Point(0, 0);
+            this.outlookBar.Name = "outlookBar";
+            this.outlookBar.SelectedBand = 0;
+            this.outlookBar.Size = new System.Drawing.Size(145, 511);
+            this.outlookBar.TabIndex = 0;
+            this.outlookBar.Paint += new System.Windows.Forms.PaintEventHandler(this.outlookBar_Paint);
             // 
             // Form1
             // 
@@ -402,6 +413,21 @@ namespace VACE_Controlling
 		}
 
         private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void outlookBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

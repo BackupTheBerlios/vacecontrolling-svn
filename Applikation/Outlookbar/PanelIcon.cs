@@ -11,6 +11,8 @@ namespace VACE_Controlling.Outlookbar
     {
         public int index;
         public IconPanel iconPanel;
+        public Image tmp;
+        public String name;
 
         private Color bckgColor;
         private bool mouseEnter;
@@ -22,7 +24,7 @@ namespace VACE_Controlling.Outlookbar
                 return index;
             }
         }
-        public PanelIcon(IconPanel parent, Image image, int index, EventHandler onClickEvent)
+        public PanelIcon(IconPanel parent, Image image, int index, EventHandler onClickEvent,String name)
         {
             this.index = index;
             this.iconPanel = parent;
@@ -30,6 +32,7 @@ namespace VACE_Controlling.Outlookbar
             Visible = true;
             Location = new Point(iconPanel.outlookBar.Size.Width / 2 - image.Size.Width / 2,
                             iconPanel.Margin + index * iconPanel.IconSpacing);
+            this.name = name;
             Size = image.Size;
             Click += onClickEvent;
             Tag = this;
@@ -48,9 +51,11 @@ namespace VACE_Controlling.Outlookbar
                 (args.Y < Size.Width - 2) &&
                 (!mouseEnter))
             {
-                BackColor = Color.LightCyan;
-                BorderStyle = BorderStyle.FixedSingle;
-                Location = Location - new Size(1, 1);
+               
+                //BorderStyle = BorderStyle.FixedSingle;
+                this.tmp = this.Image;
+                this.Image = Image.FromFile("images/" + name + "_hover.png");
+                //Location = Location - new Size(1, 1);
                 mouseEnter = true;
             }
         }
@@ -63,9 +68,9 @@ namespace VACE_Controlling.Outlookbar
         {
             if (mouseEnter)
             {
-                BackColor = bckgColor;
+                this.Image = Image.FromFile("images/" + name + ".png");
                 BorderStyle = BorderStyle.None;
-                Location = Location + new Size(1, 1);
+               // Location = Location + new Size(1, 1);
                 mouseEnter = false;
             }
         }
