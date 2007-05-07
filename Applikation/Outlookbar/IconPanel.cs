@@ -39,11 +39,13 @@ namespace VACE_Controlling.Outlookbar
             this.BorderStyle = BorderStyle.None;
 		}
 
-		public void AddIcon(string caption, Image image, EventHandler onClickEvent)
+		public void AddIcon(string caption, EventHandler onClickEvent)
 		{
 			int index=Controls.Count/2;	// two entries per icon
-			PanelIcon panelIcon=new PanelIcon(this, image, index, onClickEvent,caption);
+			PanelIcon panelIcon=new PanelIcon(this, index, onClickEvent,caption);
 			Controls.Add(panelIcon);
+
+            Image image = panelIcon.Image;
 
 			Label label=new Label();
 			label.Text=caption;

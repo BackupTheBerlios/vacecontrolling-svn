@@ -24,16 +24,17 @@ namespace VACE_Controlling.Outlookbar
                 return index;
             }
         }
-        public PanelIcon(IconPanel parent, Image image, int index, EventHandler onClickEvent,String name)
+        public PanelIcon(IconPanel parent, int index, EventHandler onClickEvent,String name)
         {
             this.index = index;
             this.iconPanel = parent;
-            Image = image;
+            this.Image = Image.FromFile("images/normal/" + name+".png");
+
             Visible = true;
-            Location = new Point(iconPanel.outlookBar.Size.Width / 2 - image.Size.Width / 2,
+            Location = new Point(iconPanel.outlookBar.Size.Width / 2 - Image.Size.Width / 2,
                             iconPanel.Margin + index * iconPanel.IconSpacing);
             this.name = name;
-            Size = image.Size;
+            Size = Image.Size;
             Click += onClickEvent;
             Tag = this;
 
@@ -54,7 +55,7 @@ namespace VACE_Controlling.Outlookbar
                
                 //BorderStyle = BorderStyle.FixedSingle;
                 this.tmp = this.Image;
-                this.Image = Image.FromFile("images/" + name + "_hover.png");
+                this.Image = Image.FromFile("images/hover/" + name + "_hover.png");
                 //Location = Location - new Size(1, 1);
                 mouseEnter = true;
             }
@@ -68,7 +69,7 @@ namespace VACE_Controlling.Outlookbar
         {
             if (mouseEnter)
             {
-                this.Image = Image.FromFile("images/" + name + ".png");
+                this.Image = Image.FromFile("images/normal/" + name + ".png");
                 BorderStyle = BorderStyle.None;
                // Location = Location + new Size(1, 1);
                 mouseEnter = false;

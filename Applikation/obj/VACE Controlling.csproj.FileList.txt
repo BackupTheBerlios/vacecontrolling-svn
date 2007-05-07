@@ -7,3 +7,5 @@ obj\Debug\VACE_Controlling.Properties.Resources.resources
 obj\Debug\VACE Controlling.csproj.GenerateResource.Cache
 obj\Debug\VACE Controlling.exe
 obj\Debug\VACE Controlling.pdb
+bin\Debug\Testdatenbank.mdb
+bin\Debug\VACE Controlling.exe.config

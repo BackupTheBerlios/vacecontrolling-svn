@@ -89,6 +89,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TestdatenbankDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestdatenbankDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\newdocument.gif" />
@@ -100,7 +105,24 @@
     <None Include="images\paste.gif" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="images\cut.gif" />
+    <None Include="TestdatenbankDataSet.xsc">
+      <DependentUpon>TestdatenbankDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TestdatenbankDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestdatenbankDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestdatenbankDataSet.xss">
+      <DependentUpon>TestdatenbankDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Testdatenbank.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
