@@ -1,0 +1,44 @@
+Einleitung:
+
+Der Prototyp für das Projekt VACE-Controlling wird das importieren der Excelsheets implementieren.
+
+Der Grund für diese Entscheidung ist es, dass das importieren von Excelsheets für jedes Projektmitglied etwas vollkommen neues ist. Deswegen ist dies der wahrscheinlich kritischste Teil der Applikation.
+
+
+Beschreibung von Excelimports:
+
+Diese SW-Einheit Excelimports hat zwei Arten von Excelsheets zu importieren.
+
+Das erste Excelsheet beinhaltet die Konditionen zu denen die Mitarbeiter arbeiten. Das zweite Excelsheet beinhaltet die Stammdaten der Mitarbeiter. Diese beiden Excelsheets müssen mit Hilfe der Softwareeinheit Excelimports importiert werden.
+
+Die beiden primären Aufgaben der SW- Einheit Excelimports sind:
+Die Datenbank unseres Systems aktuell zu halten und Änderungen in der externen Personaldatenbank zu übernehmen
+Das Generieren der Zeiterfassungssheets
+
+Ziel ist es die Datenbank unseres Systems zu jeder Zeit aktuell zu halten.
+
+Umfang des Prototypen:
+
+Der Umfang des Prototypen wird nur das importieren der Excelsheets enthalten.
+Das heißt konkret, dass nur die beiden im Dokument SW-Architektur Excelimports enthaltenen Klassen implementiert werden:
+
+SheetimpEx
+Erledigt das Im-/Exportieren der Excel Sheets in Instanzen der Klasse Sheet.
+Sheet
+Speichert die Daten der Excel Sheets.
+
+
+
+Ob auch das exportieren in Excelsheets bereits im Protoyp implementiert wird hängt davon ab, inwieweit sich das exportieren programmiertechnisch vom importieren unterscheidet. Ist kein großer Unterschied zu erwarten wird das exportieren erst in der vollständigen Applikation implementiert.
+
+Das heißt natürlich auch das die Klasse SheetimpEx nicht vollständig implementiert wird da darin auch die Methoden zum exportieren vorgesehen sind.
+
+
+Schnittstellen:
+
+Die Schnittstellen dieser beiden Klassen sind:
+
+Excelsheets
+das heißt .xls Dateien
+Schnittstelle zu EImp
+Übergabe der importierten Daten
