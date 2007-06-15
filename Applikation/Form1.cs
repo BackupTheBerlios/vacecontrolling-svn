@@ -244,6 +244,7 @@ namespace VACE_Controlling
         private DataGridViewTextBoxColumn Monat29;
         private ComboBox comboBox13;
         private RadioButton radioButton6;
+        private ToolStripMenuItem datenbankAuswählenToolStripMenuItem;
         private IContainer components;
 
 		public Form1()
@@ -558,6 +559,7 @@ namespace VACE_Controlling
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datenbankAuswählenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -611,12 +613,14 @@ namespace VACE_Controlling
             this.dateiToolStripMenuItem,
             this.bearbeitenToolStripMenuItem,
             this.ansichtToolStripMenuItem,
-            this.hilfeToolStripMenuItem});
+            this.hilfeToolStripMenuItem,
+            this.datenbankAuswählenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(814, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // dateiToolStripMenuItem
             // 
@@ -2708,6 +2712,12 @@ namespace VACE_Controlling
             this.dataGridViewTextBoxColumn6.HeaderText = "Arbeitszeitmodell";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
+            // datenbankAuswählenToolStripMenuItem
+            // 
+            this.datenbankAuswählenToolStripMenuItem.Name = "datenbankAuswählenToolStripMenuItem";
+            this.datenbankAuswählenToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
+            this.datenbankAuswählenToolStripMenuItem.Text = "Datenbank auswählen";
+            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -2839,6 +2849,11 @@ namespace VACE_Controlling
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
