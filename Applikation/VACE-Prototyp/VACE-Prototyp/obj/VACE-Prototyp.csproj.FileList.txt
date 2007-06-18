@@ -1,0 +1,16 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\VACE_Prototyp.Properties.Resources.resources
+obj\Debug\VACE-Prototyp.csproj.GenerateResource.Cache
+bin\Debug\VACE-Prototyp.exe
+bin\Debug\VACE-Prototyp.pdb
+obj\Debug\VACE-Prototyp.exe
+obj\Debug\VACE-Prototyp.pdb
+obj\Debug\Interop.Microsoft.Office.Core.dll
+obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+obj\Debug\VACE-Prototyp.csproj.ResolveComReference.cache
+bin\Debug\Interop.Microsoft.Office.Core.dll
+bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+obj\Debug\Interop.DAO.dll
+bin\Debug\Interop.DAO.dll
+bin\Debug\VACE-Prototyp.exe.config
+obj\Debug\VACE_Prototyp.importForm.resources
